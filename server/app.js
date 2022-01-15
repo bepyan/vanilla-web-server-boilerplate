@@ -1,13 +1,11 @@
 const express = require("express");
+const router = require("./router");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(express.static("src"));
-
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/src/home.html");
-});
+app.use(express.static("dist"));
+app.use(router);
 
 app.listen(PORT, () => {
   console.log(`
