@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./client",
+    "paths": {
+      "@core": ["./core"],
+      "@components": ["./components"],
+      "@containers": ["./containers"],
+      "@services": ["./services"],
+      "@stores": ["./stores"],
+      "@styles/*": ["./styles/*"],
+      "@utils": ["./utils"]
+    }
+  },
+  "exclude": ["dist", "node_modules"]
+}
