@@ -1,10 +1,7 @@
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { default: MiniCssExtractPlugin } = require("mini-css-extract-plugin");
 
 module.exports = {
-  mode: "none",
-  target: "web",
   entry: {
     home: "./client/pages/home.js",
   },
@@ -27,11 +24,5 @@ module.exports = {
     ],
   },
 
-  plugins: [
-    new MiniCssExtractPlugin(),
-    new HtmlWebpackPlugin({
-      template: "public/index.html",
-      filename: "home.html",
-    }),
-  ],
+  plugins: [new MiniCssExtractPlugin()],
 };
