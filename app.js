@@ -3,10 +3,10 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(express.static("dist"));
+app.use(express.static("src"));
 
 app.get("/", (req, res) => {
-  res.json({ message: "hello vanilla web serv" });
+  res.sendFile(__dirname + "/src/home.html");
 });
 
 app.listen(PORT, () => {
