@@ -1,11 +1,11 @@
-export const State = (obj) => {
-  Object.keys(obj).forEach((key) => {
-    let _value = obj[key];
+export const State = (state) => {
+  state._subscribers = new Set();
+  state.subscribe = (render) => state._subscribers.add(render);
 
-    obj._subscribers = new Set();
-    obj.subscribe = (render) => obj._subscribers.add(render);
+  Object.keys(state).forEach((key) => {
+    let _value = state[key];
 
-    Object.defineProperty(obj, key, {
+    Object.defineProperty(state, key, {
       get() {
         return _value;
       },
@@ -15,9 +15,10 @@ export const State = (obj) => {
         if (JSON.stringify(_value) === JSON.stringify(value)) return;
 
         _value = value;
-        obj._subscribers.forEach((fn) => fn());
+        state._subscribers.forEach((fn) => fn());
       },
     });
   });
-  return obj;
+
+  return state;
 };

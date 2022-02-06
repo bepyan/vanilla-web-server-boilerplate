@@ -1,3 +1,14 @@
 body {
   background-color: yellow;
 }
+
+.added__wrapper {
+  display: flex;
+  & > * + * {
+    margin-left: 1rem;
+  }
+}
+
+.added__item {
+  cursor: pointer;
+}

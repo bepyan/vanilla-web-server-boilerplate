@@ -3,7 +3,7 @@ const { default: MiniCssExtractPlugin } = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: {
-    home: "./client/pages/home.js",
+    home: "./client/pages/index.js",
   },
   output: {
     path: path.resolve(__dirname, "dist"),
